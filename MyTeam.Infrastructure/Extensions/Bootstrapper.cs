@@ -40,6 +40,7 @@ namespace MyTeam.Infrastructure.Extensions
             services.AddScoped<ICommandHandler<CreateNewMember>, CreateNewMemberHandler>();
             services.AddScoped<ICommandHandler<CreateNewTeam>, CreateNewTeamHandler>();
             services.AddScoped<ICommandHandler<UpdateMember>, UpdateMemberHandler>();
+            services.AddScoped<ICommandHandler<UpdateStatusMember>, UpdateStatusHandler>();
 
             return services;
         }
