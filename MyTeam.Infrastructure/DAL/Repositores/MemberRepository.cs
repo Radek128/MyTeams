@@ -16,12 +16,13 @@ namespace MyTeam.Infrastructure.DAL.Repositores
 
         public async Task<IEnumerable<Member>> GetAllMembersAsync(TeamId teamId)
         {
-            var result = await _teamDbContext.Teams
+            var result = await _teamDbContext.Members
                  .AsNoTracking()
-                 .Include(x => x.Members)
-                 .SingleOrDefaultAsync(x => x.Id == teamId);
+                 .Where(x => x.TeamId == teamId)
+                 .OrderByDescending(x => x.CreatedOn)
+                 .ToListAsync();
 
-            return result?.Members ?? Enumerable.Empty<Member>();
+            return result ?? [];
         }
 
         public Task<Member?> GetByIdAsync(MemberId memberId)

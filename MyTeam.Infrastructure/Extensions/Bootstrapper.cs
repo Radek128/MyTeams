@@ -9,10 +9,12 @@ using MyTeam.Application.Dto;
 using MyTeam.Application.Queries;
 using MyTeam.Application.Queries.Handlers;
 using MyTeam.Domain.Repositories;
+using MyTeam.Domain.Services;
 using MyTeam.Infrastructure.Configurations;
 using MyTeam.Infrastructure.DAL;
 using MyTeam.Infrastructure.DAL.Repositores;
 using MyTeam.Infrastructure.FileStorage;
+using MyTeam.Infrastructure.WebHooks;
 
 namespace MyTeam.Infrastructure.Extensions
 {
@@ -23,7 +25,8 @@ namespace MyTeam.Infrastructure.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IFileService, LocalStorageFileService>();
-
+            services.AddScoped<ITeamDomainService, TeamDomainService>();
+            services.AddScoped<INotification, Notification>();
             return services;
         }
 

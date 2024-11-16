@@ -24,5 +24,10 @@ namespace MyTeam.Domain.ValueObjects
         public static implicit operator Guid(TeamId value) => value.Value;
 
         public static implicit operator TeamId(Guid value) => new(value);
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }

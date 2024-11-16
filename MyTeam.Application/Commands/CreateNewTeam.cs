@@ -2,5 +2,5 @@
 
 namespace MyTeam.Application.Commands
 {
-    public record CreateNewTeam(Guid NewTeamId) : ICommand;
+    public record CreateNewTeam(Guid NewTeamId, string Name) : ICommand;
 }

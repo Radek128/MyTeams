@@ -44,7 +44,7 @@ namespace MyTeam.Api.Controllers
         }
 
         [HttpPost("{teamId}/members")]
-        public async Task<ActionResult> Add(Guid teamId, CreateNewMember createNewMember)
+        public async Task<ActionResult<Guid>> Add(Guid teamId, CreateNewMember createNewMember)
         {
             await _createNewMemeberHandler.HandleAsync(createNewMember with 
             { 

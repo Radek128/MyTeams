@@ -1,5 +1,4 @@
 ﻿using MyTeam.Domain.Entities;
-using MyTeam.Domain.ValueObjects;
 
 namespace MyTeam.Application.Dto
 {

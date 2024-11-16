@@ -20,6 +20,10 @@ namespace MyTeam.Infrastructure.DAL.Repositores
             await _teamDbContext.SaveChangesAsync();
         }
 
+        public Task<bool> CheckIfTeamNameIsInUse(TeamName teamName) 
+            => _teamDbContext.Teams.AnyAsync(x => x.Name == teamName);
+        
+
         public Task<Team?> GetByIdAsync(TeamId teamId)
             => _teamDbContext.Teams
             .Include(x => x.Members)
