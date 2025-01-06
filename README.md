@@ -58,7 +58,7 @@ dotnet run
   - Body:
     ```json
     {
-      "teamId": "?",
+      "teamId": "guid",
       "name": "string"
     }
     ```
@@ -71,7 +71,7 @@ dotnet run
   - Body:
     ```json
     {
-      "teamId": "string",
+      "teamId": "guid",
       "avatar": "string",
       "isActive": "boolean",
       "firstName": "string",
