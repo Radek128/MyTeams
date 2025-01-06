@@ -11,6 +11,8 @@ namespace MyTeam.Infrastructure.DAL.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id)
                    .HasConversion(x => x.Value, x => new(x));
+            builder.Property(x => x.Name)
+                   .HasConversion(x => x.Value, x => new(x));
             builder.HasMany(x => x.Members);
         }
     }

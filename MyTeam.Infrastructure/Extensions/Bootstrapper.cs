@@ -51,6 +51,7 @@ namespace MyTeam.Infrastructure.Extensions
         public static IServiceCollection AddQueries(this IServiceCollection services)
         {
             services.AddScoped<IQueryHandler<GetMember, MemberDto>, GetMemberQueryHandler>();
+            services.AddScoped<IQueryHandler<GetTeam, TeamDto>, GetTeamQueryHandler>();
             services.AddScoped<IQueryHandler<GetMembers, IEnumerable<MemberDto>>, GetMembersQueryHandler>();
 
             return services;

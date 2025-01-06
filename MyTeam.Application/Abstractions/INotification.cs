@@ -4,6 +4,6 @@ namespace MyTeam.Application.Abstractions
 {
     public interface INotification
     {
-        Task SendMessage(string teamId, MemberDto member);
+        Task SendMessage(string teamName, MemberDto member);
     }
 }

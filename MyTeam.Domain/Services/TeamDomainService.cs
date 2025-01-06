@@ -22,12 +22,11 @@ namespace MyTeam.Domain.Services
         public async Task AddTeam(Team team)
         {
             var result = await _teamRepository.CheckIfTeamNameIsInUse(team.Name);
-            if(!result)
+            if(result)
             {
-                await _teamRepository.AddAsync(team);
+                throw new TeamNameAlreadyInUseException("Team name is already in use");  
             }
-
-            throw new TeamNameAlreadyInUseException("Team name is already in use");
+            await _teamRepository.AddAsync(team);
         }
     }
 }
