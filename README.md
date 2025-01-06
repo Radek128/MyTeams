@@ -163,7 +163,7 @@ dotnet run
   - Body:
     ```json
     {
-      "teamId": "?",
+      "teamId?": "guid",
       "name": "string"
     }
     ```
@@ -194,7 +194,7 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 - **Change Member Status** (PUT): `http://localhost:5001/teams/members/{memberId}/status`
@@ -202,7 +202,7 @@ dotnet run
     ```json
     {
       "isActiveStatus": "boolean",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 
