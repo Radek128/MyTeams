@@ -78,7 +78,7 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "?"
+      "memberId": "guid"
     }
     ```
 - **Aktualizacja członka** (PUT): `http://localhost:5001/teams/members/{memberId}`
@@ -89,7 +89,7 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 - **Zmiana statusu członka** (PUT): `http://localhost:5001/teams/members/{memberId}/status`
@@ -97,7 +97,7 @@ dotnet run
     ```json
     {
       "isActiveStatus": "boolean",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 
