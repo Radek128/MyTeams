@@ -13,6 +13,7 @@ using MyTeam.Domain.Services;
 using MyTeam.Infrastructure.Configurations;
 using MyTeam.Infrastructure.DAL;
 using MyTeam.Infrastructure.DAL.Repositores;
+using MyTeam.Infrastructure.Exceptions;
 using MyTeam.Infrastructure.FileStorage;
 using MyTeam.Infrastructure.WebHooks;
 
@@ -62,6 +63,12 @@ namespace MyTeam.Infrastructure.Extensions
             services.Configure<Postgres>(x => { });
             var postgresOptions = configuration.GetOptions<Postgres>(OptionsSectionName);
             services.AddDbContext<TeamDbContext>(x => x.UseNpgsql(postgresOptions.ConnectionString));
+            return services;
+        }
+
+        public static IServiceCollection AddHelpers(this IServiceCollection services)
+        {
+            services.AddSingleton<ExceptionMiddleware>();
             return services;
         }
 
