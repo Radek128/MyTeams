@@ -58,7 +58,7 @@ dotnet run
   - Body:
     ```json
     {
-      "teamId": "?",
+      "teamId": "guid",
       "name": "string"
     }
     ```
@@ -71,14 +71,14 @@ dotnet run
   - Body:
     ```json
     {
-      "teamId": "string",
+      "teamId": "guid",
       "avatar": "string",
       "isActive": "boolean",
       "firstName": "string",
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "?"
+      "memberId": "guid"
     }
     ```
 - **Aktualizacja członka** (PUT): `http://localhost:5001/teams/members/{memberId}`
@@ -89,7 +89,7 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 - **Zmiana statusu członka** (PUT): `http://localhost:5001/teams/members/{memberId}/status`
@@ -97,7 +97,7 @@ dotnet run
     ```json
     {
       "isActiveStatus": "boolean",
-      "memberId": "string"
+      "memberId": "guid"
     }
     ```
 
