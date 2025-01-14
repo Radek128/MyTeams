@@ -14,7 +14,7 @@ namespace MyTeam.Domain.Entities
         public DateTime CreatedOn { get; private set; } = DateTime.UtcNow;
         public FileInformation Avatar { get; private set; }
 
-        public Member()
+        private Member()
         {
             
         }
@@ -48,7 +48,7 @@ namespace MyTeam.Domain.Entities
             bool isActive) 
             => new(memberId, teamId, name, fullName, email, phoneNumber, avatar, isActive); 
 
-        public void Update(FirstName name,
+        internal void Update(FirstName name,
             FullName fullName,
             Email email,
             PhoneNumber phoneNumber)
@@ -59,7 +59,7 @@ namespace MyTeam.Domain.Entities
             PhoneNumber = phoneNumber;
         }
 
-        public void Activate() 
+        internal void Activate() 
         {
             if (!IsActive)
             {
@@ -67,7 +67,7 @@ namespace MyTeam.Domain.Entities
             }
         }
 
-        public void Deactivate()
+        internal void Deactivate()
         {
             if (IsActive)
             {

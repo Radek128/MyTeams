@@ -2,7 +2,7 @@
 {
     public class InvalidFullNameException : BusinessException
     {
-        public InvalidFullNameException(object Id) : base($"Cannot set: {Id}  as .")
+        public InvalidFullNameException(object Id) : base($"Invalid name: {Id}.")
         {
                 
         }
