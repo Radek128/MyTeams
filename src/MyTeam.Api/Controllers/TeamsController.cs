@@ -24,11 +24,11 @@ namespace MyTeam.Api.Controllers
         [HttpPost]
         public async Task<ActionResult<Guid>> CreateNewTeam(CreateNewTeam createNewTeam)
         {
-            var newTeam = createNewTeam.NewTeamId == Guid.Empty 
-                ? createNewTeam with { NewTeamId = Guid.NewGuid() } 
+            var newTeam = createNewTeam.TeamId == Guid.Empty 
+                ? createNewTeam with { TeamId = Guid.NewGuid() } 
                 : createNewTeam; 
             await _createNewTeamHandler.HandleAsync(newTeam);
-            return Ok(newTeam.NewTeamId);
+            return Ok(newTeam.TeamId);
         }
 
         [HttpGet("{teamId}")]
