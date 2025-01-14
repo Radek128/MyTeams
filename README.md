@@ -89,7 +89,8 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "guid"
+      "memberId": "guid",
+      "teamId": "guid",
     }
     ```
 - **Zmiana statusu członka** (PUT): `http://localhost:5001/teams/members/{memberId}/status`
@@ -194,7 +195,8 @@ dotnet run
       "lastName": "string",
       "email": "string",
       "phoneNumber": "string",
-      "memberId": "guid"
+      "memberId": "guid",
+      "teamId": "guid",
     }
     ```
 - **Change Member Status** (PUT): `http://localhost:5001/teams/members/{memberId}/status`
