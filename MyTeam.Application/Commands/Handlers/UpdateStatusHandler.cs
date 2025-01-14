@@ -7,27 +7,19 @@ namespace MyTeam.Application.Commands.Handlers
 {
     public class UpdateStatusHandler : ICommandHandler<UpdateStatusMember>
     {
-        private readonly IMemberRepository _memberRepository;
+        private readonly ITeamRepository _teamRepository;
 
-        public UpdateStatusHandler(IMemberRepository teamRepository)
+        public UpdateStatusHandler(ITeamRepository teamRepository)
         {
-            _memberRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
+            _teamRepository = teamRepository ?? throw new ArgumentNullException(nameof(teamRepository));
         }
 
         public async Task HandleAsync(UpdateStatusMember command)
         {
-            var member = await _memberRepository.GetByIdAsync(command.MemberId)
-                ?? throw new EntityNotFoundException(typeof(Member), command.MemberId);
-            if (command.isActiveStatus)
-            {
-                member.Activate();
-            }
-            else 
-            {
-                member.Deactivate();
-            }
-
-            await _memberRepository.UpdateAsync(member);
+            var member = await _teamRepository.GetByIdAsync(command.TeamId)
+                ?? throw new EntityNotFoundException(typeof(Team), command.TeamId);
+            member.UpdateSatusMember(command.MemberId, command.isActiveStatus);
+            await _teamRepository.UpdateAsync(member);
         }
     }
 }
