@@ -89,7 +89,7 @@ namespace MyTeams.UnitTests.Domain
         {
             // Arrange
             var team = GetTeam();
-            var member = GetMember(team.Id);
+            var member = GetMember(team.Id, false);
             team.AddMember(member);
 
             // Act
@@ -130,14 +130,14 @@ namespace MyTeams.UnitTests.Domain
         }
 
         private Team GetTeam() => new Team(Guid.NewGuid(), "CR Team");
-        private Member GetMember(Guid teamId) => Member.Create(Guid.NewGuid(),
+        private Member GetMember(Guid teamId, bool isActive = true) => Member.Create(Guid.NewGuid(),
                 teamId,
                 "John",
                 "Doe",
                 "john.doe@example.com",
                 "123456789",
                 "file.jpg",
-                true);
+                isActive);
     }
 }
 
