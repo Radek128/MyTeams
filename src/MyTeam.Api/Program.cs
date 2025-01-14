@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MyTeam.Infrastructure.DAL;
+using MyTeam.Infrastructure.Exceptions;
 using MyTeam.Infrastructure.Extensions;
 using MyTeam.Infrastructure.WebHooks;
 
@@ -23,7 +24,8 @@ builder.Services
     .AddRepositories()
     .AddServices()
     .AddCommands()
-    .AddQueries();
+    .AddQueries()
+    .AddHelpers();
 
 builder.Services.AddSignalR();
 var app = builder.Build();
@@ -34,6 +36,7 @@ using (var scope = app.Services.CreateScope())
     await dbContext.Database.MigrateAsync();
 }
 app.UseCors("AllowAll");
+app.UseMiddleware<ExceptionMiddleware>();
 app.MapHub<TeamHub>("/newTeamMember");
 app.UseRouting();
 app.UseStaticFiles();
