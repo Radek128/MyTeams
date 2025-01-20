@@ -4,11 +4,6 @@ using MyTeam.Application.Extensions;
 using MyTeam.Domain.Entities;
 using MyTeam.Domain.Exceptions;
 using MyTeam.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyTeam.Application.Queries.Handlers
 {

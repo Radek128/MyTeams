@@ -16,7 +16,7 @@ namespace MyTeam.Application.Commands.Handlers
 
         public async Task HandleAsync(CreateNewTeam command)
         {
-            Team team = new Team(command.NewTeamId, command.Name);
+            Team team = new Team(command.TeamId, command.Name);
             await _teamDomaindService.AddTeam(team);
         }
     }
